@@ -1,81 +1,217 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bon Portal</title>
+
 <style>
-body{
-font-family:Arial;
+
+*{
 margin:0;
-background:#f4f4f4;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
 }
+
+body{
+background:#f4f6f9;
+}
+
+/* HEADER */
 
 header{
-background:#111;
+position:sticky;
+top:0;
+background:#1877f2;
 color:white;
-padding:15px;
-text-align:center;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+z-index:1000;
 }
 
-nav{
-background:#333;
-padding:10px;
-text-align:center;
+.logo{
+font-size:20px;
+font-weight:bold;
 }
 
 nav a{
 color:white;
-margin:10px;
 text-decoration:none;
+margin-left:20px;
 font-weight:bold;
 }
 
-.container{
-width:80%;
-margin:auto;
-margin-top:20px;
+/* HERO */
+
+.hero{
+padding:80px 20px;
+text-align:center;
+background:white;
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#555;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card h2{
+color:#1877f2;
+}
+
+/* LATEST POST */
+
+.latest{
+padding:40px;
 }
 
 .post{
 background:white;
-padding:15px;
-margin-bottom:15px;
-border-radius:6px;
+padding:20px;
+border-radius:8px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
-button{
-padding:8px 12px;
-margin-top:5px;
+/* FOOTER */
+
+footer{
+position:fixed;
+bottom:0;
+width:100%;
+background:#111;
+color:white;
+text-align:center;
+padding:10px;
+opacity:0;
+transition:opacity 0.5s;
 }
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.hero h1{
+font-size:28px;
+}
+
+nav a{
+margin-left:10px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>My Website</h1>
-<p>Welcome to my personal site</p>
-</header>
+
+<div class="logo">
+Bon Portal
+</div>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="timeline.html">Timeline</a>
 </nav>
 
-<div class="container">
+</header>
+
+<section class="hero">
+
+<h1>Welcome</h1>
+
+<p>Your personal media portal</p>
+
+</section>
+
+<section class="dashboard">
+
+<div class="card">
+<h2>120</h2>
+<p>Total Photos</p>
+</div>
+
+<div class="card">
+<h2>45</h2>
+<p>Total Videos</p>
+</div>
+
+<div class="card">
+<h2>30</h2>
+<p>Total Posts</p>
+</div>
+
+</section>
+
+<section class="latest">
+
+<h2 style="margin-bottom:20px;">Latest Post</h2>
 
 <div class="post">
-<h3>First Post</h3>
-<p>This is my first post on my website timeline.</p>
-<small>Posted today</small>
+<p>This will show the latest timeline post.</p>
 </div>
 
-<div class="post">
-<h3>Another Post</h3>
-<p>You can later edit, delete, and create posts.</p>
-</div>
+</section>
 
-</div>
+<footer id="footer">
+
+© 2026 Bon Portal
+
+</footer>
+
+<script>
+
+/* FOOTER SHOW / HIDE ON SCROLL */
+
+let lastScroll = 0;
+let footer = document.getElementById("footer");
+
+window.addEventListener("scroll",function(){
+
+let currentScroll = window.pageYOffset;
+
+if(currentScroll > lastScroll){
+
+footer.style.opacity = "1";
+
+}else{
+
+footer.style.opacity = "0";
+
+}
+
+lastScroll = currentScroll;
+
+});
+
+</script>
 
 </body>
 </html>
